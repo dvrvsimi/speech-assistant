@@ -23,6 +23,15 @@ def record(ask = False):
             print('sorry, my server is down')
         return voice_data
 
+def luna_speak(audio_string):
+    tts = gTTS(text=audio_string, lang='en')
+    r = random.randint(1, 100000000)
+    audio = 'audio.' + str(r) + '.mp3'
+    tts.save(audio)
+    playsound.playsound(audio)
+    print(audio_string)
+    os.remove(audio)
+
 def respond(voice_data):
     if 'hello' in voice_data:
         print('hi there, human')
