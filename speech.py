@@ -31,7 +31,8 @@ def luna_speak(audio_string):
     playsound.playsound(audio)
     print(audio_string)
     os.remove(audio)
-
+name = record('what is your name? ')
+print('hello ' + name)
 def respond(voice_data):
     if 'hello' in voice_data:
         print('hi there, human')
