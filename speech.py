@@ -29,13 +29,13 @@ def luna_speak(audio_string):
     audio = 'audio.' + str(r) + '.mp3'
     tts.save(audio)
     playsound.playsound(audio)
-    print(audio_string)
+   # print(audio_string)
     os.remove(audio)
 name = record('what is your name? ')
 print('hello ' + name)
 def respond(voice_data):
     if 'hello' in voice_data:
-        print('hi there, human')
+        print('hi there, ' + 'name')
     if 'what is your name' in voice_data:
         print('my name is luna')
     if "what is today's date" in voice_data:
@@ -47,8 +47,12 @@ def respond(voice_data):
     if 'location' in voice_data:
         location = record('where do you want to search for?')
         webbrowser.get().open(url='https://google.nl/maps/place/' + location + '&amp;')
-        print('here\'s your search on ' + location)
-    if 'bye luna' in voice_data:
+        print('here\'s a map showing ' + location)
+    if 'song' in voice_data:
+        song = record('what song would you like to listen to?')
+        webbrowser.get().open(url='https://streamsquid.com/#/search/' + song + '&amp;')
+        print('here\'s a streaming platform playing ' + song)
+    if 'bye' in voice_data:
         print('bye human!')
         exit()
 
